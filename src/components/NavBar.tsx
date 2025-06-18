@@ -14,7 +14,7 @@ import {
 
 const NavBar = () => {
     return (
-        <nav className='h-16 bg-background/40 sticky top-0 border-b px-8 backdrop-blur-2xl flex items-center justify-between'>
+        <nav className='h-16 bg-background/40 sticky top-0 z-50 border-b px-8 backdrop-blur-2xl flex items-center justify-between'>
             <div className='font-bold text-xl'>
                 ProgrammingWithJason
             </div>
