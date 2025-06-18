@@ -56,11 +56,19 @@ const BlogPost = async ({ params }: { params: Promise<{ slug: string }> }) => {
 
         return (
             <MaxWidthWrapper>
-                <div className="flex">
-                    <article className="max-w-4xl mx-auto">
-                        <div className="prose prose-lg max-w-none prose-headings:text-gray-900 dark:prose-headings:text-gray-100 prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-strong:text-gray-900 dark:prose-strong:text-gray-100 prose-code:text-pink-600 dark:prose-code:text-green-400" dangerouslySetInnerHTML={{ __html: htmlContent }} />
+                <div className="flex flex-col xl:flex-row xl:justify-center xl:gap-8 xl:max-w-6xl xl:mx-auto">
+                    {/* 文章内容 - 移动端全宽，桌面端居中显示 */}
+                    <article className="w-full xl:max-w-3xl xl:flex-shrink-0">
+                        <div 
+                            className="prose prose-sm sm:prose-base xl:prose-lg max-w-none prose-headings:text-gray-900 dark:prose-headings:text-gray-100 prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-strong:text-gray-900 dark:prose-strong:text-gray-100 prose-code:text-pink-600 dark:prose-code:text-green-400"
+                            dangerouslySetInnerHTML={{ __html: htmlContent }} 
+                        />
                     </article>
-                    <Onthispage htmlContent={htmlContent} />
+                    
+                    {/* On This Page - 只在桌面端显示 */}
+                    <aside className="xl:flex-shrink-0 xl:w-64">
+                        <Onthispage htmlContent={htmlContent} />
+                    </aside>
                 </div>
             </MaxWidthWrapper>
         )

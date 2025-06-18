@@ -19,7 +19,7 @@ const Blog = () => {
     }
 
     return (
-        <MaxWidthWrapper className="py-16">
+        <MaxWidthWrapper className="py-8 sm:py-16">
             <div className="max-w-7xl mx-auto">
                 {/* Header Section */}
                 <div className="text-center mb-16 space-y-4">
@@ -68,7 +68,7 @@ const Blog = () => {
                                     />
                                     
                                     {/* Category Badge */}
-                                    <div style={{ position: 'absolute', top: '16px', left: '16px', zIndex: 10 }}>
+                                    <div style={{ position: 'absolute', top: '16px', left: '16px', zIndex: 3 }}>
                                         <span className={`${category.color} text-white px-3 py-1.5 rounded-full text-xs font-semibold shadow-lg`}>
                                             {category.name}
                                         </span>

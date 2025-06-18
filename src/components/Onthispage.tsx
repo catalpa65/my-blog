@@ -41,7 +41,7 @@ const Onthispage = ({ htmlContent }: { htmlContent: string }) => {
     }, [htmlContent]) // 当htmlContent变化时重新执行
 
     return (
-        <div className='hidden xl:block sticky top-20 ml-8 w-56 h-fit z-10'>
+        <div className='hidden xl:block sticky top-20 w-full h-fit z-10'>
             <div className="bg-background border border-border rounded p-3">
                 <h3 className="text-base font-semibold text-foreground mb-4">
                     On This Page
