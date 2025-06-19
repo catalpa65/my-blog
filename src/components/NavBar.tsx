@@ -7,9 +7,6 @@ import { HamburgerMenuIcon, Cross2Icon, HomeIcon, ReaderIcon, ChatBubbleIcon } f
 import {
     Sheet,
     SheetContent,
-    SheetDescription,
-    SheetHeader,
-    SheetTitle,
     SheetTrigger,
 } from "@/components/ui/sheet"
 import LoadingBar from "react-top-loading-bar";

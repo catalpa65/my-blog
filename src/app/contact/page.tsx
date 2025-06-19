@@ -5,11 +5,18 @@ import React, { useEffect } from 'react'
 // 声明高德地图的类型
 declare global {
     interface Window {
-        AMap: any;
+        AMap: {
+            Map: any;
+            Marker: any;
+            Scale: any;
+            Pixel: any;
+            Size: any;
+            Icon: any;
+        };
     }
 }
 
-const page = () => {
+const ContactPage = () => {
     useEffect(() => {
         // 加载高德地图
         const loadAmapScript = () => {
@@ -19,7 +26,8 @@ const page = () => {
             }
             
             const script = document.createElement('script');
-            script.src = 'https://webapi.amap.com/maps?v=2.0&key=52d87230ddcf7258a7087809d0ce1bff&plugin=AMap.Scale,AMap.ToolBar,AMap.Marker';
+            const apiKey = process.env.NEXT_PUBLIC_AMAP_KEY || '52d87230ddcf7258a7087809d0ce1bff';
+            script.src = `https://webapi.amap.com/maps?v=2.0&key=${apiKey}&plugin=AMap.Scale,AMap.ToolBar,AMap.Marker`;
             script.onload = () => {
                 initMap();
             };
@@ -330,4 +338,4 @@ const page = () => {
     )
 }
 
-export default page
+export default ContactPage
