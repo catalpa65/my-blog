@@ -1,13 +1,13 @@
 'use client'
 
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { useState, useEffect, useMemo, Suspense } from 'react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import SampleBlogs from '@/config/sampleblogs'
 import MaxWidthWrapper from '@/components/MaxWidthWrapper'
 import { Button } from '@/components/ui/button'
 
-const Blog = () => {
+const BlogContent = () => {
     const searchParams = useSearchParams()
     const [searchTerm, setSearchTerm] = useState('')
 
@@ -212,6 +212,27 @@ const Blog = () => {
                 )}
             </div>
         </MaxWidthWrapper>
+    )
+}
+
+const Blog = () => {
+    return (
+        <Suspense fallback={
+            <MaxWidthWrapper className="py-8 sm:py-16">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-16 space-y-4">
+                        <h1 className="text-4xl md:text-6xl font-bold tracking-tight bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+                            Loading...
+                        </h1>
+                        <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                            Loading blog articles...
+                        </p>
+                    </div>
+                </div>
+            </MaxWidthWrapper>
+        }>
+            <BlogContent />
+        </Suspense>
     )
 }
 

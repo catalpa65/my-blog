@@ -1,10 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // 禁用开发模式指示器
-  devIndicators: {
-    appIsrStatus: false,
-  },
+  // Next.js 15不再需要devIndicators配置
   
   // Vercel部署无需静态导出
   // output: 'export', // 注释掉，Vercel支持SSR
