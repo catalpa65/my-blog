@@ -1,6 +1,105 @@
-import React from 'react'
+"use client"
+
+import React, { useEffect } from 'react'
+
+// 声明高德地图的类型
+declare global {
+    interface Window {
+        AMap: any;
+    }
+}
 
 const page = () => {
+    useEffect(() => {
+        // 加载高德地图
+        const loadAmapScript = () => {
+            if (window.AMap) {
+                initMap();
+                return;
+            }
+            
+            const script = document.createElement('script');
+            script.src = 'https://webapi.amap.com/maps?v=2.0&key=52d87230ddcf7258a7087809d0ce1bff&plugin=AMap.Scale,AMap.ToolBar,AMap.Marker';
+            script.onload = () => {
+                initMap();
+            };
+            script.onerror = () => {
+                // 如果地图加载失败，显示备用内容
+                const container = document.getElementById('amap-container');
+                const fallback = document.getElementById('map-fallback');
+                if (container && fallback) {
+                    container.style.display = 'none';
+                    fallback.style.display = 'flex';
+                }
+            };
+            document.head.appendChild(script);
+        };
+        
+        const initMap = () => {
+            try {
+                // 检测是否为移动设备
+                const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
+                
+                // 创建地图实例
+                const map = new window.AMap.Map('amap-container', {
+                    zoom: 10,
+                    center: [121.5, 31.22],
+                    viewMode: '2D',
+                    mapStyle: 'amap://styles/normal',
+                    showIndoorMap: false,
+                    showBuildingBlock: false,
+                    // 根据设备类型决定交互配置
+                    dragEnable: !isMobile,        // 移动端禁止拖拽，桌面端允许
+                    zoomEnable: !isMobile,        // 移动端禁止缩放，桌面端允许
+                    doubleClickZoom: !isMobile,   // 移动端禁止双击缩放，桌面端允许
+                    scrollWheel: !isMobile,       // 移动端禁止滚轮缩放，桌面端允许
+                    touchZoom: false,             // 移动端和桌面端都禁止触摸缩放
+                    keyboardEnable: !isMobile,    // 移动端禁止键盘操作，桌面端允许
+                    resizeEnable: true            // 允许地图容器大小变化时重新设置地图大小
+                });
+                
+                // 移动端添加CSS样式，让触摸事件穿透，允许页面滚动
+                if (isMobile) {
+                    const mapContainer = document.getElementById('amap-container');
+                    if (mapContainer) {
+                        mapContainer.style.pointerEvents = 'none';
+                    }
+                }
+                
+                // 不添加任何标记点，保持地图纯净
+                
+                // 不添加任何控件，保持最简洁的界面
+                
+                // 地图加载完成后的回调
+                map.on('complete', () => {
+                    console.log('高德地图加载完成');
+                });
+                
+            } catch (error) {
+                console.error('地图初始化失败:', error);
+                // 显示备用内容
+                const container = document.getElementById('amap-container');
+                const fallback = document.getElementById('map-fallback');
+                if (container && fallback) {
+                    container.style.display = 'none';
+                    fallback.style.display = 'flex';
+                }
+            }
+        };
+        
+        loadAmapScript();
+        
+        // 清理函数
+        return () => {
+            if (window.AMap) {
+                const mapContainer = document.getElementById('amap-container');
+                if (mapContainer) {
+                    mapContainer.innerHTML = '';
+                }
+            }
+        };
+    }, []);
+
     return (
         <div className="min-h-screen bg-background">
             {/* Hero Section */}
@@ -84,20 +183,61 @@ const page = () => {
                     {/* Map and Contact Info */}
                     <div className="lg:col-span-3 order-1 lg:order-1">
                         <div className="bg-card border border-border/50 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 h-full flex flex-col">
-                            {/* Map */}
+                            {/* 高德地图 */}
                             <div className="relative flex-1">
-                                <iframe
-                                    width="100%"
-                                    height="100%"
-                                    className="w-full h-full"
-                                    frameBorder={0}
-                                    title="map"
-                                    marginHeight={0}
-                                    marginWidth={0}
-                                    scrolling="no"
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115473.95!2d121.5!3d31.22!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35b27040b1f53c33%3A0x295129423c364a1!2z5Lit5Zu95LiK5rW35biC5rWm5Lic5paw5Yy6!5e0!3m2!1szh-CN!2scn!4v1635000000000!5m2!1szh-CN!2scn&z=11"
-                                    style={{ filter: "contrast(1.05) opacity(0.9)" }}
-                                />
+                                <div id="amap-container" className="w-full h-full min-h-[400px]"></div>
+                                
+                                {/* 地图加载失败时的备用显示 */}
+                                <div 
+                                    id="map-fallback" 
+                                    className="absolute inset-0 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-gray-800 dark:to-gray-900 flex items-center justify-center"
+                                    style={{ display: 'none' }}
+                                >
+                                    <div className="text-center p-8">
+                                        <div className="bg-primary/10 p-4 rounded-full inline-block mb-4">
+                                            <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                            </svg>
+                                        </div>
+                                        <h3 className="text-lg font-semibold text-foreground mb-2">上海市</h3>
+                                        <p className="text-sm text-muted-foreground mb-4">
+                                            联系地址
+                                        </p>
+                                        <div className="space-y-3">
+                                            <a 
+                                                href="https://www.amap.com/search?query=上海市&city=310000" 
+                                                target="_blank" 
+                                                rel="noopener noreferrer"
+                                                className="inline-flex items-center space-x-2 bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 rounded-lg transition-colors text-sm font-medium"
+                                            >
+                                                <span>在高德地图中查看</span>
+                                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                                </svg>
+                                            </a>
+                                            <div className="flex items-center justify-center space-x-4 text-sm">
+                                                <a 
+                                                    href="https://map.baidu.com/search/上海市"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="text-primary hover:text-primary/80 transition-colors font-medium"
+                                                >
+                                                    百度地图
+                                                </a>
+                                                <span className="text-muted-foreground">|</span>
+                                                <a 
+                                                    href="https://ditu.so.com/?k=上海市"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="text-primary hover:text-primary/80 transition-colors font-medium"
+                                                >
+                                                    360地图
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             
                             {/* Contact Information */}

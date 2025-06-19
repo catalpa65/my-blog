@@ -155,7 +155,7 @@ export default function Home() {
       {/* About Me Section - 适中的现代化设计 */}
       <section className="bg-gray-50/50 dark:bg-gray-900/30 py-6 lg:py-8 lg:flex-shrink-0">
         <div className="container px-4 mx-auto">
-          <h2 className="text-lg font-bold text-center mb-4 text-gray-800 dark:text-gray-200 lg:text-xl lg:mb-6">About Me</h2>
+          <h2 className="text-2xl font-bold text-center mb-4 text-gray-800 dark:text-gray-200 lg:text-xl lg:mb-6">About Me</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 lg:gap-6 max-w-5xl mx-auto">
             <div className="bg-white dark:bg-gray-800 rounded-xl p-4 lg:p-5 shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md transition-all duration-200">
               <div className="w-8 h-8 lg:w-10 lg:h-10 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mb-2 lg:mb-3">
@@ -163,11 +163,11 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
                 </svg>
               </div>
-              <h3 className="font-semibold text-gray-900 dark:text-white mb-1 lg:mb-2 text-sm lg:text-base">Web Development</h3>
-              <p className="text-xs lg:text-sm text-gray-600 dark:text-gray-300 mb-2 lg:mb-3 leading-relaxed">
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-1 lg:mb-2 text-lg lg:text-base">Web Development</h3>
+              <p className="text-base lg:text-sm text-gray-600 dark:text-gray-300 mb-2 lg:mb-3 leading-relaxed">
                 Building robust, scalable web applications using React, Node.js, and modern tech stacks.
               </p>
-              <a href="#" className="text-xs lg:text-sm text-primary hover:text-primary/80 inline-flex items-center font-medium">
+              <a href="#" className="text-base lg:text-sm text-primary hover:text-primary/80 inline-flex items-center font-medium">
                 Learn More
                 <svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
@@ -181,11 +181,11 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
                 </svg>
               </div>
-              <h3 className="font-semibold text-gray-900 dark:text-white mb-1 lg:mb-2 text-sm lg:text-base">Mobile Development</h3>
-              <p className="text-xs lg:text-sm text-gray-600 dark:text-gray-300 mb-2 lg:mb-3 leading-relaxed">
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-1 lg:mb-2 text-lg lg:text-base">Mobile Development</h3>
+              <p className="text-base lg:text-sm text-gray-600 dark:text-gray-300 mb-2 lg:mb-3 leading-relaxed">
                 Crafting seamless mobile experiences for Android and iOS using React Native and Flutter.
               </p>
-              <a href="#" className="text-xs lg:text-sm text-primary hover:text-primary/80 inline-flex items-center font-medium">
+              <a href="#" className="text-base lg:text-sm text-primary hover:text-primary/80 inline-flex items-center font-medium">
                 Learn More
                 <svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
@@ -199,11 +199,11 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
                 </svg>
               </div>
-              <h3 className="font-semibold text-gray-900 dark:text-white mb-1 lg:mb-2 text-sm lg:text-base">Cloud Solutions</h3>
-              <p className="text-xs lg:text-sm text-gray-600 dark:text-gray-300 mb-2 lg:mb-3 leading-relaxed">
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-1 lg:mb-2 text-lg lg:text-base">Cloud Solutions</h3>
+              <p className="text-base lg:text-sm text-gray-600 dark:text-gray-300 mb-2 lg:mb-3 leading-relaxed">
                 Managing cloud environments with AWS, Alibaba Cloud to ensure applications scale effortlessly.
               </p>
-              <a href="#" className="text-xs lg:text-sm text-primary hover:text-primary/80 inline-flex items-center font-medium">
+              <a href="#" className="text-base lg:text-sm text-primary hover:text-primary/80 inline-flex items-center font-medium">
                 Learn More
                 <svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
