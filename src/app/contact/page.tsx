@@ -1,18 +1,13 @@
 "use client"
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import React, { useEffect } from 'react'
 
 // 声明高德地图的类型
 declare global {
     interface Window {
-        AMap: {
-            Map: any;
-            Marker: any;
-            Scale: any;
-            Pixel: any;
-            Size: any;
-            Icon: any;
-        };
+        AMap: any;
     }
 }
 

@@ -3,8 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   // 禁用开发模式指示器
   devIndicators: {
-    buildActivity: false,
-    buildActivityPosition: 'bottom-right',
+    appIsrStatus: false,
   },
   
   // Vercel部署无需静态导出
