@@ -1,6 +1,6 @@
 const SiteConfig = {
-    name: "你好",
-    description: "我是Jason",
+    name: "ProgrammingWithJason",
+    description: "",
 }
 
 export default SiteConfig
