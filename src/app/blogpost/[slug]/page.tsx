@@ -65,7 +65,7 @@ const BlogPost = async ({ params }: { params: Promise<{ slug: string }> }) => {
                         />
                     </article>
                     
-                    {/* On This Page - 只在桌面端显示 */}
+                    {/* 右侧边栏 - 只在桌面端显示 */}
                     <aside className="xl:flex-shrink-0 xl:w-64">
                         <Onthispage htmlContent={htmlContent} />
                     </aside>
