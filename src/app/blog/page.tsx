@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useMemo, Suspense } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useSearchParams } from 'next/navigation'
 import SampleBlogs from '@/config/sampleblogs'
 import MaxWidthWrapper from '@/components/MaxWidthWrapper'
@@ -102,15 +103,11 @@ const BlogContent = () => {
                                     overflow: 'hidden'
                                 }}>
                                     {/* Main Image */}
-                                    <img
+                                    <Image
                                         src={blog.imageUrl || `https://via.placeholder.com/400x300/4F46E5/FFFFFF?text=Blog+${index + 1}`}
                                         alt={blog.title}
+                                        fill
                                         style={{
-                                            position: 'absolute',
-                                            top: 0,
-                                            left: 0,
-                                            width: '100%',
-                                            height: '100%',
                                             objectFit: 'cover',
                                             zIndex: 1,
                                             transition: 'transform 0.5s ease-out'

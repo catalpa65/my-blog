@@ -1,6 +1,7 @@
 "use client"
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import Typed from 'typed.js';
 
 export default function Home() {
@@ -124,9 +125,11 @@ export default function Home() {
           </div>
         </div>
         <div className="w-full mt-6 lg:mt-0 lg:w-1/2">
-          <img 
+          <Image 
             src="https://www.creative-tim.com/twcomponents/svg/website-designer-bro-purple.svg" 
             alt="tailwind css components" 
+            width={400}
+            height={300}
             className="w-full h-auto max-w-sm mx-auto lg:max-w-md" 
           />
         </div>

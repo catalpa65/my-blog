@@ -21,8 +21,6 @@ const DifyAiChat = () => {
             }
             
             // 立即隐藏窗口以避免闪动
-            const originalDisplay = chatWindow.style.display
-            const originalTransition = chatWindow.style.transition
             chatWindow.style.transition = 'none' // 暂时禁用过渡动画
             
             const buttonRect = button.getBoundingClientRect()
