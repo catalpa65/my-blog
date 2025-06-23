@@ -35,6 +35,7 @@ const BlogContent = () => {
         if (slug.includes('typescript')) return { name: 'TypeScript', color: 'bg-blue-600' }
         if (slug.includes('api')) return { name: 'API', color: 'bg-green-500' }
         if (slug.includes('next')) return { name: 'Next.js', color: 'bg-gray-900' }
+        if (slug.includes('dify') || slug.includes('ai')) return { name: 'AI', color: 'bg-indigo-500' }
         return { name: 'Tutorial', color: 'bg-gray-500' }
     }
 
