@@ -29,6 +29,7 @@ const BlogContent = () => {
         )
     }, [searchTerm])
     const getCategory = (slug: string) => {
+        if (slug.includes('vue')) return { name: 'Vue.js', color: 'bg-emerald-500' }
         if (slug.includes('react')) return { name: 'React', color: 'bg-blue-500' }
         if (slug.includes('css') || slug.includes('tailwind')) return { name: 'CSS', color: 'bg-purple-500' }
         if (slug.includes('javascript')) return { name: 'JavaScript', color: 'bg-yellow-500' }

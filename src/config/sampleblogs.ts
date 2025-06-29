@@ -8,6 +8,43 @@ interface BlogType {
 
 const SampleBlogs: BlogType[] = [
     {
+        slug: "vue-fundamentals-guide",
+        title: "Vue.js 基础指南：从零开始掌握现代前端框架",
+        description: "Vue系列第一期：全面介绍Vue.js基础知识，包括应用创建、模板语法、响应式系统、组件开发等核心概念",
+        imageUrl: "https://picsum.photos/400/300?random=10",
+        content: `
+# Vue.js 基础指南：从零开始掌握现代前端框架
+
+Vue.js是一个渐进式JavaScript框架，以其简洁的语法、出色的性能和丰富的生态系统而广受开发者喜爱。
+
+## 核心特性
+
+- **渐进式**：可以逐步集成到现有项目中
+- **响应式**：数据变化自动更新视图
+- **组件化**：可复用的UI构建块
+- **轻量级**：运行时大小约34KB
+
+## 主要内容包括
+
+### 基础概念
+- 创建Vue应用和模板语法
+- 响应式数据绑定和计算属性
+- 条件渲染和列表渲染
+
+### 交互处理
+- 事件处理和表单绑定
+- 类与样式的动态绑定
+- 侦听器和模板引用
+
+### 组件开发
+- 组件定义和使用
+- Props传递和事件通信
+- 组件生命周期管理
+
+通过系统学习这些核心概念，你将能够构建功能完整的Vue.js应用程序。
+        `
+    },
+    {
         slug: "mastering-react-components",
         title: "Mastering React Components",
         description: "An in-depth guide to understanding and creating React components.",
